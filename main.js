@@ -33,21 +33,33 @@ function getPokemonInfo(url) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // Make sure data comes throufg
+      // Make sure data comes through
       console.log(data);
-      // Write data to pokemon information container
-      document.querySelector(".pokemon-info").innerHTML = `
-    <img src="${data.sprites.front_default} ">
-    `;
-      document.querySelector(".name").innerHTML = `<p>Name: ${data.name}</p>`;
-      document.querySelector(
-        ".height"
-      ).innerHTML = `<p>Height: ${data.height}</p>`;
-      document.querySelector(
-        ".weight"
-      ).innerHTML = `<p>Weight: ${data.weight}</p>`;
-      document.querySelector(
-        ".ability"
-      ).innerHTML = `<p>Ability: ${data.abilities[0].ability.name}</p>`;
+      fetch(data.species.url)
+        .then((res) => res.json())
+        .then((speciesData) => {
+          console.log(speciesData);
+          // Write data to pokemon information container
+          document.querySelector(".pokemon-info").innerHTML = `
+          <img src="${data.sprites.front_default} ">
+          `;
+          document.querySelector(
+            ".name"
+          ).innerHTML = `<p>Name: ${data.name}</p>`;
+          document.querySelector(
+            ".height"
+          ).innerHTML = `<p>Height: ${data.height}</p>`;
+          document.querySelector(
+            ".weight"
+          ).innerHTML = `<p>Weight: ${data.weight}</p>`;
+          document.querySelector(
+            ".ability"
+          ).innerHTML = `<p>Ability: ${data.abilities[0].ability.name}</p>`;
+          // Description
+          document.querySelector(".pokemon-info").innerHTML = `
+          <img src="${data.sprites.front_default} ">
+          <p>${speciesData.flavor_text_entries[0].flavor_text}</p>
+          `;
+        });
     });
 }
