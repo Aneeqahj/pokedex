@@ -58,7 +58,7 @@ function getPokemonInfo(url) {
           // Description
           document.querySelector(".pokemon-info").innerHTML = `
           <img src="${data.sprites.front_default} ">
-          <p>${speciesData.flavor_text_entries[0].flavor_text}</p>
+          <p class=info >${speciesData.flavor_text_entries[0].flavor_text}</p>
           `;
         });
     });
