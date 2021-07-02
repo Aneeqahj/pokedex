@@ -41,7 +41,7 @@ function getPokemonInfo(url) {
           console.log(speciesData);
           // Write data to pokemon information container
           document.querySelector(".pokemon-info").innerHTML = `
-          <img src="${data.sprites.front_default} ">
+          <img src="${data.sprites.other.dream_world.front_default} ">
           `;
           document.querySelector(
             ".name"
@@ -57,7 +57,7 @@ function getPokemonInfo(url) {
           ).innerHTML = `<p>Ability: ${data.abilities[0].ability.name}</p>`;
           // Description
           document.querySelector(".pokemon-info").innerHTML = `
-          <img src="${data.sprites.front_default} ">
+          <img src="${data.sprites.other.dream_world.front_default} ">
           <p class=info >${speciesData.flavor_text_entries[0].flavor_text}</p>
           `;
         });
