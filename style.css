@@ -345,6 +345,10 @@ img {
 }
 
 @media screen and (max-width: 800px) {
+  .info {
+    text-align: center;
+  }
+
   img {
     width: 47vw;
     height: 34vh;
